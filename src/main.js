@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { house } from "./models/wallMeshes";
-import { boxMesh } from "./models/ChairMeshes";
+import { chairGroup } from "./models/ChairMeshes";
 import { light } from "./utils/light";
 
 // initialize the scene
@@ -13,7 +13,7 @@ scene.add(axesHelper)
 
 //add meshes to scene
 scene.add(house)
-scene.add(boxMesh)
+scene.add(chairGroup)
 
 //add light
 scene.add(light);
