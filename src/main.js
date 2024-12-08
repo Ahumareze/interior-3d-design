@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { house } from "./models/wallMeshes";
 import { boxMesh } from "./models/ChairMeshes";
+import { light } from "./utils/light";
 
 // initialize the scene
 const scene = new THREE.Scene();
@@ -14,7 +15,8 @@ scene.add(axesHelper)
 scene.add(house)
 scene.add(boxMesh)
 
-
+//add light
+scene.add(light);
 
 
 
@@ -49,7 +51,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   200
 );
-camera.position.set(-10, 5, 20)
+camera.position.set(10, 8, 15)
 
 // initialize the renderer
 const canvas = document.querySelector("canvas.threejs");
@@ -59,6 +61,8 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 
 // instantiate the controls
 const controls = new OrbitControls(camera, canvas);
