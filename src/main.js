@@ -42,8 +42,6 @@ scene.add(light);
 
 
 
-
-
 // initialize the camera
 const camera = new THREE.PerspectiveCamera(
   35,
@@ -51,7 +49,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   200
 );
-camera.position.set(10, 8, 15)
+camera.position.set(10, 12, 25)
 
 // initialize the renderer
 const canvas = document.querySelector("canvas.threejs");

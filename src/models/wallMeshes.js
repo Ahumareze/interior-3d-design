@@ -19,13 +19,26 @@ backWallMesh.receiveShadow = true;
 backWallMesh.castShadow = true;
 backWallMesh.position.set(0, 5, -10)
 
+//side wall
 const sideWallMesh = new THREE.Mesh(wallGeometry, wallMaterial);
 sideWallMesh.receiveShadow = true;
 sideWallMesh.castShadow = true;
 sideWallMesh.position.set(-10, 5, 0)
 sideWallMesh.rotation.y = Math.PI * 0.5
 
+//picture
+const textureLoader = new THREE.TextureLoader();
+const pictureGeometry = new THREE.BoxGeometry(5, 5, 0.1);
+const pictureMaterial = new THREE.MeshBasicMaterial({map: textureLoader.load('../../ryan.jpg')})
+const pictureFrame = new THREE.Mesh(pictureGeometry, pictureMaterial);
+pictureFrame.position.set(-10, 5, 0)
+pictureFrame.rotation.y = Math.PI * 0.5
+
+
+
+
+
 
 export const house  = new THREE.Group();
 
-house.add(floorMesh, backWallMesh, sideWallMesh)
+house.add(floorMesh, backWallMesh, sideWallMesh, pictureFrame)
